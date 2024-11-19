@@ -8,14 +8,17 @@ public class PlayerMovement : MonoBehaviour
     // Velocity 
     private float _xVelocity; 
     private float _yVelocity;
-    public float speed = 3;
+    public float speed = 5;
 
     // Input 
     private string HorizontalAxis = "Horizontal";
     private string VerticalAxis = "Vertical";
 
     // Gets the component connection 
-    private void Start() {  _rigidbody2D = GetComponent<Rigidbody2D>();    }
+    private void Start() 
+    {
+        _rigidbody2D = GetComponent<Rigidbody2D>();
+    }
 
 
     private void Update()
