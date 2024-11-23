@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NewPlayerMovement : MonoBehaviour
+public class OtherPlayerMovement : MonoBehaviour
 {
     // Components
     private Rigidbody2D _rigidbody2D;
@@ -8,7 +8,7 @@ public class NewPlayerMovement : MonoBehaviour
     // Velocity
     private float _xVelocity;
     private float _yVelocity;
-    public float speed = 7.5f;
+    public float speed = 5f;
 
     // Gets the component connection
     void Start()
@@ -23,10 +23,10 @@ public class NewPlayerMovement : MonoBehaviour
         _yVelocity = 0f;
 
         // Check for specific key presses (WASD)
-        if (Input.GetKey(KeyCode.W)) _yVelocity = 1f;
-        if (Input.GetKey(KeyCode.S)) _yVelocity = -1f;
-        if (Input.GetKey(KeyCode.A)) _xVelocity = -1f;
-        if (Input.GetKey(KeyCode.D)) _xVelocity = 1f;
+        if (Input.GetKey(KeyCode.UpArrow)) _yVelocity = 1f;
+        if (Input.GetKey(KeyCode.DownArrow)) _yVelocity = -1f;
+        if (Input.GetKey(KeyCode.LeftArrow)) _xVelocity = -1f;
+        if (Input.GetKey(KeyCode.RightArrow)) _xVelocity = 1f;
 
         // Normalize the velocity vector to maintain consistent speed
         Vector2 movement = new Vector2(_xVelocity, _yVelocity).normalized;
@@ -34,10 +34,11 @@ public class NewPlayerMovement : MonoBehaviour
         // Push the input data to the Rigidbody
         _rigidbody2D.velocity = movement * speed;
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.RightShift))
         {
             speed = 9f;
-        } else
+        }
+        else
         {
             speed = 7.5f;
         }
